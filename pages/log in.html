@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/log in.css">
+    <title>Registro / Login</title>
+</head>
+<body>
+
+<main>
+    <!-- FORMULARIO DE LOGIN -->
+    <section class="formulario-login" id="seccionLogin" style="display:block;">
+        <h1>Login de Usuario</h1>
+        <form id="formulario-login">
+            <label>Email: <input type="email" id="emailLogin" required></label>
+            <label>Contraseña: <input type="password" id="passwordLogin" required></label>
+            <button type="submit">Iniciar sesión</button><a href="#" id="mostrarRegistro">Registro</a>
+        </form>
+    </section>
+
+    <!-- FORMULARIO DE REGISTRO -->
+    <section class="formulario-registro" id="seccionRegistro" style="display:none;">
+        <h1>Registro de Usuario</h1>
+        <form id="formulario-registro">
+            <label>Nombre completo: <input type="text" id="nombre" required></label>
+            <label>Identificación: <input type="text" id="identificacion" required></label>
+            <label>Nacionalidad: <input type="text" id="nacionalidad" required></label>
+            <label>Email: <input type="email" id="emailRegistro" required></label>
+            <label>Teléfono: <input type="text" id="telefono" required></label>
+            <label>Contraseña: <input type="password" id="passwordRegistro" required></label>
+            <button type="submit">Registrarse</button><a href="#" id="mostrarLogin">Login</a>
+        </form>
+    </section>
+</main>
+
+<script src="/script/log in.js"></script>
+<script>
+    // Cambiar entre registro y login
+    const mostrarLogin = document.getElementById('mostrarLogin');
+    const seccionLogin = document.getElementById('seccionLogin');
+    const mostrarRegistro = document.getElementById('mostrarRegistro');
+    const seccionRegistro = document.getElementById('seccionRegistro');
+
+    mostrarLogin.addEventListener('click', () => {
+        seccionRegistro.style.display = 'none';
+        seccionLogin.style.display = 'block';
+    });
+    mostrarRegistro.addEventListener('click', () => {
+        seccionRegistro.style.display = 'block';
+        seccionLogin.style.display = 'none';
+    });
+</script>
+</body>
+</html>

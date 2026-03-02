@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="dashboard-wrapper">
+    <nav class="sidebar">
+        <div class="logo">Institución ABC</div>
+        <ul>
+            <li onclick="showSection('stats')">🏠 Inicio</li>
+            <li onclick="showSection('cursos')">📚 Gestión de Cursos</li>
+            <li onclick="showSection('docentes')">👨‍🏫 Gestión de Docentes</li>
+        </ul>
+        <button onclick="logout()">Cerrar Sesión</button>
+    </nav>
+
+    <main class="content">
+        <header>
+            <h1 id="section-title">Panel de Control</h1>
+        </header>
+
+        <section id="stats-section" class="view">
+            <div class="stats-grid">
+                <div class="card">
+                    <h3>Cursos Activos</h3>
+                    <p id="count-cursos">0</p>
+                </div>
+                <div class="card">
+                    <h3>Total Docentes</h3>
+                    <p id="count-docentes">0</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="cursos-section" class="view" style="display:none;">
+            <div class="actions">
+                <button class="btn-primary" onclick="openModal('curso')">Crear Nuevo Curso</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nombre</th>
+                        <th>Docente</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-cursos">
+                    </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+
+<div id="modalDocente" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title">Registrar Nuevo Docente</h2>
+        <form id="formDocente">
+            <input type="hidden" id="docente-id-edit"> <div class="grid-form">
+                <input type="text" id="doc-codigo" placeholder="Código (Ej: D001)" required>
+                <input type="text" id="doc-id" placeholder="Identificación" required>
+                <input type="text" id="doc-nombres" placeholder="Nombres" required>
+                <input type="text" id="doc-apellidos" placeholder="Apellidos" required>
+                <input type="email" id="doc-email" placeholder="Correo Electrónico" required>
+                <input type="url" id="doc-foto" placeholder="URL de la Foto">
+                <select id="doc-area" required>
+                    <option value="">Seleccione Área...</option>
+                    <option value="Biología">Biología</option>
+                    <option value="Informática">Informática</option>
+                    <option value="Matemáticas">Matemáticas</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-save">Guardar Docente</button>
+        </form>
+    </div>
+</div>
+
+</body>
+<script src="./script/app.js"></script>
+</html>
