@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Dashboard</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">ABC</div>
+            <nav>
+                <a href="Dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+                <a href="./pages/Docentes.html" class="nav-item"><i data-lucide="users"></i> Docentes</a>
+                <a href="#" class="nav-item active"><i data-lucide="book-open"></i> Cursos</a>
+                <a href="#" class="nav-item"><i data-lucide="user-check"></i> Admins</a>
+                <a href="#" class="nav-item"><i data-lucide="settings"></i> Configuración</a>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="header">
+                <div class="header-right">
+                    <button class="icon-btn"><i data-lucide="bell"></i></button>
+                    <div class="user-profile" id="profileDropdown">
+                        <img src="https://i.pravatar.cc/150?u=neffie" alt="User">
+                        <span>Neffie Surner</span>
+                        <i data-lucide="chevron-down"></i>
+                        
+                        <div class="dropdown-menu">
+                            <a href="#">Administrador</a>
+                            <a href="#">Log out</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <section class="banner">
+                <h1>Dashboard</h1>
+            </section>
+
+            <section class="stats-grid">
+                <div class="card">
+                    <div class="card-content">
+                        <p>Cursos Activos</p>
+                        <span class="stat-number">4</span>
+                        <p class="stat-sub">Activos cursos activo</p>
+                    </div>
+                    <div class="card-icon blue"><i data-lucide="book"></i></div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <p>Total Docentes</p>
+                        <span class="stat-number">30</span>
+                        <p class="stat-sub">Total Docentes docentes</p>
+                    </div>
+                    <div class="card-icon light-blue"><i data-lucide="users-2"></i></div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <p>Estudiantes Inscritos</p>
+                        <span class="stat-number">283</span>
+                        <p class="stat-sub">Estudiantes Inscritos</p>
+                    </div>
+                    <div class="card-icon light-blue"><i data-lucide="user-plus"></i></div>
+                </div>
+            </section>
+
+            <section class="activity-section">
+                <h2>Actividad Reciente</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <img src="https://i.pravatar.cc/150?u=1" alt="Avatar">
+                        <div class="activity-info">
+                            <h3>Curso Prep Education Maternals Studios</h3>
+                            <p>Neffie Surner - 2 houraas</p>
+                        </div>
+                        <i data-lucide="more-horizontal" class="more-icon"></i>
+                    </div>
+                    <div class="activity-item">
+                        <img src="https://i.pravatar.cc/150?u=2" alt="Avatar">
+                        <div class="activity-info">
+                            <h3>Curso Ereparaamento de Concusion</h3>
+                            <p>GZand Femenciro</p>
+                        </div>
+                        <i data-lucide="more-horizontal" class="more-icon"></i>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="./script/app.js"></script>
+</body>
+</html>

@@ -1,22 +1,252 @@
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1000; 
-    left: 0; top: 0; width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.5);
+:root {
+    --sidebar-bg: #1a2233;
+    --main-bg: #f0f4f8;
+    --accent-blue: #2563eb;
+    --text-dark: #333;
+    --text-gray: #718096;
 }
 
-.modal-content {
-    background-color: white;
-    margin: 10% auto;
-    padding: 20px;
-    width: 50%;
-    border-radius: 10px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.grid-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+body {
+    background-color: var(--main-bg);
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    background-color: var(--sidebar-bg);
+    color: white;
+    padding: 20px 0;
+    transition: 0.3s;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Sidebar Nav Items con Animación */
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 25px;
+    color: #a0aec0;
+    text-decoration: none;
     gap: 15px;
-    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden; /* Para contener el efecto de brillo si lo deseas */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Transición fluida */
+}
+
+/* Iconos dentro del nav */
+.nav-item i {
+    transition: transform 0.3s ease;
+}
+
+/* Efecto Hover */
+.nav-item:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding-left: 30px; /* Desplazamiento sutil a la derecha */
+}
+
+.nav-item:hover i {
+    transform: scale(1.1); /* El icono crece un poco */
+}
+
+
+/* Animación de entrada para los items (opcional) */
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.sidebar nav a {
+    animation: fadeInSlide 0.5s ease forwards;
+    opacity: 0;
+}
+
+/* Retraso escalonado para cada item del menú */
+.sidebar nav a:nth-child(1) { animation-delay: 0.1s; }
+.sidebar nav a:nth-child(2) { animation-delay: 0.2s; }
+.sidebar nav a:nth-child(3) { animation-delay: 0.3s; }
+.sidebar nav a:nth-child(4) { animation-delay: 0.4s; }
+.sidebar nav a:nth-child(5) { animation-delay: 0.5s; }
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    height: 70px;
+    background: white;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+}
+
+.user-profile img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 150px;
+    display: none;
+    z-index: 100;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background: #f7fafc;
+}
+
+.banner {
+    background-color: var(--accent-blue);
+    padding: 40px;
+    color: white;
+}
+
+/* Stats Cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 0 40px;
+    margin-top: -40px; /* Overlap effect */
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.stat-number {
+    font-size: 28px;
+    font-weight: bold;
+    display: block;
+    margin: 5px 0;
+}
+
+.stat-sub {
+    font-size: 12px;
+    color: var(--text-gray);
+}
+
+.card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon.blue { background: #ebf4ff; color: var(--accent-blue); }
+.card-icon.light-blue { background: #e0f2fe; color: #0369a1; }
+
+/* Activity */
+.activity-section {
+    padding: 40px;
+}
+
+.activity-list {
+    background: white;
+    border-radius: 12px;
+    margin-top: 20px;
+    padding: 10px 0;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #edf2f7;
+    gap: 15px;
+}
+
+.activity-item img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+
+.activity-info h3 {
+    font-size: 15px;
+    color: var(--text-dark);
+}
+
+.activity-info p {
+    font-size: 13px;
+    color: var(--text-gray);
+}
+
+.more-icon {
+    margin-left: auto;
+    color: #cbd5e0;
+    cursor: pointer;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .sidebar { width: 70px; }
+    .nav-item span, .logo { display: none; }
+    .stats-grid { margin-top: 20px; }
 }

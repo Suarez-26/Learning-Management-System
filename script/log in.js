@@ -13,7 +13,7 @@ document.getElementById("formulario-login").addEventListener("submit", function(
         localStorage.setItem("usuarioActual", JSON.stringify(usuario));
         alert("🔰 Bienvenido " + usuario.nombre);
         // Redirigir al index.html en la raíz
-        window.location.href = "../index.html";
+        window.location.href = "../Dashboard.html";
     } else {
         alert("❌ ERROR: Email o contraseña incorrecta.");
     }
