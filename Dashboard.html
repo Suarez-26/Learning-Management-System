@@ -1,98 +1,224 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC Dashboard</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="./css/componets.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <title>Document</title>
 </head>
 <body>
+        <!--<div class="dashboard Sidebar Overlay -->
+        <div class="sidebar-overlay"></div>
 
-    <div class="container">
+        <!-- Sidebar -->
         <aside class="sidebar">
-            <div class="logo">ABC</div>
-            <nav>
-                <a href="Dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
-                <a href="./pages/Docentes.html" class="nav-item"><i data-lucide="users"></i> Docentes</a>
-                <a href="#" class="nav-item active"><i data-lucide="book-open"></i> Cursos</a>
-                <a href="#" class="nav-item"><i data-lucide="user-check"></i> Admins</a>
-                <a href="#" class="nav-item"><i data-lucide="settings"></i> Configuración</a>
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="sidebar-logo">
+                    <div class="sidebar-logo-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <span class="sidebar-logo-text">LMS ABC</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="sidebar-nav-section">
+                    <div class="sidebar-nav-title">Principal</div>
+                    <a href="dashboard.html" class="sidebar-nav-link active">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-nav-section">
+                    <div class="sidebar-nav-title">Gestión</div>
+                    <a href="cursos.html" class="sidebar-nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                        <span>Cursos</span>
+                    </a>
+                    <a href="docentes.html" class="sidebar-nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span>Docentes</span>
+                    </a>
+                    <a href="lecciones.html" class="sidebar-nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span>Lecciones</span>
+                    </a>
+                    <a href="admin.html" class="sidebar-nav-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span>Administrativos</span>
+                    </a>
+                </div>
+
+                <div class="sidebar-nav-section">
+                    <div class="sidebar-nav-title">Público</div>
+                    <a href="public/cursos-publicos.html" class="sidebar-nav-link" target="_blank">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        <span>Ver Cursos</span>
+                    </a>
+                </div>
             </nav>
+
+            <div class="sidebar-footer">
+                <div class="sidebar-user">
+                    <div class="sidebar-user-avatar" id="userAvatar">AP</div>
+                    <div class="sidebar-user-info">
+                        <div class="sidebar-user-name" id="userName">Administrador</div>
+                        <div class="sidebar-user-role">Administrador</div>
+                    </div>
+                    <button class="sidebar-logout" title="Cerrar Sesión">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </aside>
 
+        <!-- Main Content -->
         <main class="main-content">
-            <header class="header">
+            <!-- Header -->
+            <header class="main-header">
+                <div class="header-left">
+                    <button class="menu-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="24" height="24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    <h1 class="page-title">Dashboard</h1>
+                </div>
                 <div class="header-right">
-                    <button class="icon-btn"><i data-lucide="bell"></i></button>
-                    <div class="user-profile" id="profileDropdown">
-                        <img src="https://i.pravatar.cc/150?u=neffie" alt="User">
-                        <span>Neffie Surner</span>
-                        <i data-lucide="chevron-down"></i>
-                        
-                        <div class="dropdown-menu">
-                            <a href="#">Administrador</a>
-                            <a href="#">Log out</a>
-                        </div>
+                    <div class="header-search">
+                        <span class="header-search-icon">🔍</span>
+                        <input type="text" placeholder="Buscar...">
+                    </div>
+                    <div class="header-actions">
+                        <button class="header-btn" title="Notificaciones">
+                            🔔
+                            <span class="badge-count">3</span>
+                        </button>
                     </div>
                 </div>
             </header>
 
-            <section class="banner">
-                <h1>Dashboard</h1>
-            </section>
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-card-icon primary">📚</div>
+                        <div class="stat-card-value" id="totalCourses">0</div>
+                        <div class="stat-card-label">Total de Cursos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon success">✅</div>
+                        <div class="stat-card-value" id="activeCourses">0</div>
+                        <div class="stat-card-label">Cursos Activos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon info">👨‍🏫</div>
+                        <div class="stat-card-value" id="totalTeachers">0</div>
+                        <div class="stat-card-label">Docentes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon warning">📖</div>
+                        <div class="stat-card-value" id="totalLessons">0</div>
+                        <div class="stat-card-label">Lecciones</div>
+                    </div>
+                </div>
 
-            <section class="stats-grid">
-                <div class="card">
-                    <div class="card-content">
-                        <p>Cursos Activos</p>
-                        <span class="stat-number">4</span>
-                        <p class="stat-sub">Activos cursos activo</p>
+                <!-- Quick Actions -->
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">Accesos Rápidos</h2>
                     </div>
-                    <div class="card-icon blue"><i data-lucide="book"></i></div>
-                </div>
-                <div class="card">
-                    <div class="card-content">
-                        <p>Total Docentes</p>
-                        <span class="stat-number">30</span>
-                        <p class="stat-sub">Total Docentes docentes</p>
+                    <div class="quick-actions">
+                        <a href="cursos.html?action=new" class="quick-action-card">
+                            <div class="quick-action-icon courses">➕</div>
+                            <div class="quick-action-text">
+                                <h4>Nuevo Curso</h4>
+                                <p>Crear un nuevo curso</p>
+                            </div>
+                        </a>
+                        <a href="docentes.html?action=new" class="quick-action-card">
+                            <div class="quick-action-icon teachers">👨‍🏫</div>
+                            <div class="quick-action-text">
+                                <h4>Nuevo Docente</h4>
+                                <p>Registrar docente</p>
+                            </div>
+                        </a>
+                        <a href="lecciones.html?action=new" class="quick-action-card">
+                            <div class="quick-action-icon students">📖</div>
+                            <div class="quick-action-text">
+                                <h4>Nueva Lección</h4>
+                                <p>Agregar lección</p>
+                            </div>
+                        </a>
+                        <a href="public/cursos-publicos.html" class="quick-action-card" target="_blank">
+                            <div class="quick-action-icon admin">🌐</div>
+                            <div class="quick-action-text">
+                                <h4>Ver Público</h4>
+                                <p>Vista pública de cursos</p>
+                            </div>
+                        </a>
                     </div>
-                    <div class="card-icon light-blue"><i data-lucide="users-2"></i></div>
+                    
                 </div>
-                <div class="card">
-                    <div class="card-content">
-                        <p>Estudiantes Inscritos</p>
-                        <span class="stat-number">283</span>
-                        <p class="stat-sub">Estudiantes Inscritos</p>
-                    </div>
-                    <div class="card-icon light-blue"><i data-lucide="user-plus"></i></div>
-                </div>
-            </section>
 
-            <section class="activity-section">
-                <h2>Actividad Reciente</h2>
-                <div class="activity-list">
-                    <div class="activity-item">
-                        <img src="https://i.pravatar.cc/150?u=1" alt="Avatar">
-                        <div class="activity-info">
-                            <h3>Curso Prep Education Maternals Studios</h3>
-                            <p>Neffie Surner - 2 houraas</p>
-                        </div>
-                        <i data-lucide="more-horizontal" class="more-icon"></i>
+                <!-- Recent Courses -->
+                <div class="section">
+                    <div class="section-header">
+                        <h2 class="section-title">Cursos Recientes</h2>
+                        <a href="cursos.html" class="btn btn-outline btn-sm">Ver Todos</a>
                     </div>
-                    <div class="activity-item">
-                        <img src="https://i.pravatar.cc/150?u=2" alt="Avatar">
-                        <div class="activity-info">
-                            <h3>Curso Ereparaamento de Concusion</h3>
-                            <p>GZand Femenciro</p>
-                        </div>
-                        <i data-lucide="more-horizontal" class="more-icon"></i>
+                    <div class="table-container">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Código</th>
+                                    <th>Nombre</th>
+                                    <th>Docente</th>
+                                    <th>Estado</th>
+                                    <th>Fecha</th>
+                                </tr>
+                            </thead>
+                            <tbody id="recentCoursesTable">
+                                <!-- Cursos recientes se cargarán aquí -->
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </section>
+            </div>
+
+            <!-- Footer -->
+            <footer class="main-footer">
+                <p class="footer-text">© 2024 LMS ABC - Todos los derechos reservados</p>
+                <div class="footer-links">
+                    <a href="#" class="footer-link">Términos</a>
+                    <a href="#" class="footer-link">Privacidad</a>
+                    <a href="#" class="footer-link">Ayuda</a>
+                </div>
+            </footer>
         </main>
     </div>
 
-    <script src="./script/app.js"></script>
 </body>
+<script src="./script/app.js"></script>
 </html>

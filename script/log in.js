@@ -1,53 +1,57 @@
-// Obtener usuarios de localStorage o crear array vacío
-let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+// Inicializar datos por defecto
+Auth.initDefaultData();
 
-// FORMULARIO LOGIN
-document.getElementById("formulario-login").addEventListener("submit", function(event) {
-    event.preventDefault();
+// Si ya está autenticado, redirigir al dashboard
+if (Auth.isAuthenticated()) {
+    window.location.href = 'dashboard.html';
+}
 
-    const email = document.getElementById("emailLogin").value;
-    const password = document.getElementById("passwordLogin").value;
-
-    const usuario = usuarios.find(u => u.email === email && u.password === password);
-    if(usuario){
-        localStorage.setItem("usuarioActual", JSON.stringify(usuario));
-        alert("🔰 Bienvenido " + usuario.nombre);
-        // Redirigir al index.html en la raíz
-        window.location.href = "../Dashboard.html";
+// Toggle mostrar/ocultar contraseña
+function togglePassword() {
+    const passwordInput = document.getElementById('password');
+    const toggleIcon = document.getElementById('toggleIcon');
+    
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.textContent = '🙈';
     } else {
-        alert("❌ ERROR: Email o contraseña incorrecta.");
+        passwordInput.type = 'password';
+        toggleIcon.textContent = '👁️';
     }
-});
+}
 
-// FORMULARIO REGISTRO
-document.getElementById("formulario-registro").addEventListener("submit", function(event) {
-    event.preventDefault();
+// Manejar envío del formulario
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const errorDiv = document.getElementById('loginError');
 
-    const nombre = document.getElementById("nombre").value;
-    const identificacion = document.getElementById("identificacion").value;
-    const nacionalidad = document.getElementById("nacionalidad").value;
-    const email = document.getElementById("emailRegistro").value;
-    const telefono = document.getElementById("telefono").value;
-    const password = document.getElementById("passwordRegistro").value;
-
-    // Validar si el email ya existe
-    if(usuarios.some(u => u.email === email)){
-        alert("❌ ERROR: El usuario ya está registrado.");
+    // Validar campos vacíos
+    if (!email || !password) {
+        errorDiv.textContent = 'Por favor, completa todos los campos';
+        errorDiv.classList.add('show');
         return;
     }
 
-    const nuevoUsuario = { nombre, identificacion, nacionalidad, email, telefono, password };
-    usuarios.push(nuevoUsuario);
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
-    alert("✅ Usuario registrado con éxito!");
-    
-    // Limpiar formulario
-    document.getElementById("formulario-registro").reset();
+    // Intentar login
+    const result = Auth.login(email, password);
+
+    if (result.success) {
+        errorDiv.classList.remove('show');
+        window.location.href = 'dashboard.html';
+    } else {
+        errorDiv.textContent = result.message || 'Credenciales inválidas';
+        errorDiv.classList.add('show');
+    }
 });
 
-// Función para cerrar sesión (opcional)
-function logoutUsuario(){
-    localStorage.removeItem("usuarioActual");
-    alert("🔰 Sesión cerrada.");
-    window.location.href = "../index.html"; // Ajustar ruta según ubicación
-}
+// Remover mensaje de error al escribir
+document.getElementById('email').addEventListener('input', function() {
+    document.getElementById('loginError').classList.remove('show');
+});
+
+document.getElementById('password').addEventListener('input', function() {
+    document.getElementById('loginError').classList.remove('show');
+});
