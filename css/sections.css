@@ -1,0 +1,104 @@
+/* =====================================================
+   LMS ABC — sections.css
+   Dashboard, Docentes, Cursos, Módulos, Admins, Public
+   ===================================================== */
+
+/* =====================================================
+   DASHBOARD
+   ===================================================== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 28px;
+}
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  position: relative;
+  overflow: hidden;
+}
+.stat-card::before {
+  content: '';
+  position: absolute; top: -20px; right: -20px;
+  width: 80px; height: 80px;
+  border-radius: 50%; opacity: 0.1;
+}
+.stat-card:nth-child(1)::before { background: var(--accent); }
+.stat-card:nth-child(2)::before { background: var(--accent2); }
+.stat-card:nth-child(3)::before { background: var(--accent3); }
+.stat-card:nth-child(4)::before { background: var(--accent4); }
+.stat-icon  { font-size: 28px; margin-bottom: 12px; }
+.stat-value { font-family: 'Syne', sans-serif; font-size: 32px; font-weight: 800; }
+.stat-label { font-size: 13px; color: var(--text2); margin-top: 4px; }
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.dash-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+}
+.dash-card h3 { font-size: 15px; margin-bottom: 16px; color: var(--text2); }
+
+.quick-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.quick-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 13px; font-weight: 500;
+  color: var(--text);
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.quick-btn:hover { background: var(--surface3); border-color: var(--accent); color: var(--accent); }
+
+.recent-list    { list-style: none; }
+.recent-item {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.recent-item:last-child { border-bottom: none; }
+.recent-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+/* =====================================================
+   DOCENTES
+   ===================================================== */
+.teachers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+.teacher-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: all 0.2s;
+}
+.teacher-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(108,99,255,0.15);
+}
+.teacher-avatar {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 22px; font-weight: 700; color: white;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
