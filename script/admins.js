@@ -51,3 +51,33 @@ function openModalAdmin(id) {
   }
   openModal('modal-admin');
 }
+
+function saveAdmin() {
+  const identificacion = document.getElementById('a-id').value.trim();
+  const nombres        = document.getElementById('a-nombres').value.trim();
+  const apellidos      = document.getElementById('a-apellidos').value.trim();
+  const email          = document.getElementById('a-email').value.trim();
+  const pass           = document.getElementById('a-pass').value;
+  const telefono       = document.getElementById('a-tel').value.trim();
+  const cargo          = document.getElementById('a-cargo').value;
+
+  if (!identificacion || !nombres || !apellidos || !email || !pass || !cargo) {
+    toast('Completa todos los campos obligatorios', 'error');
+    return;
+  }
+
+  const admins = LS.get('admins');
+  if (editAdminId) {
+    const idx = admins.findIndex(a => a.id === editAdminId);
+    if (idx !== -1) admins[idx] = { ...admins[idx], identificacion, nombres, apellidos, email, pass, telefono, cargo };
+  } else {
+    admins.push({ id: 'ADM-' + Date.now(), identificacion, nombres, apellidos, email, pass, telefono, cargo });
+  }
+
+  LS.set('admins', admins);
+  closeModal('modal-admin');
+  renderAdmins();
+  updateDashboard();
+  toast(editAdminId ? 'Administrativo actualizado ✅' : 'Administrativo creado ✅', 'success');
+  editAdminId = null;
+}
