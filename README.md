@@ -26,7 +26,6 @@ La Institución educativa ABC, en aras de mejorar la calidad de educación que i
 ## Estructura de proyecto
 
 ```txt
-## 📂 Estructura del Proyecto
 
 📁 proyecto-javascript
 │
