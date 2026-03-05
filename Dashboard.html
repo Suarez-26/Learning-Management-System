@@ -359,6 +359,108 @@
   </div>
 </div>
 
+<!-- Modal Lección -->
+<div id="modal-leccion" class="modal-overlay">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h2 id="modal-leccion-title">Nueva Lección</h2>
+      <button class="modal-close" onclick="closeModal('modal-leccion')">✕</button>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Título *</label><input id="l-titulo" placeholder="Lección 1: Variables"></div>
+      <div class="form-group"><label>Intensidad Horaria (horas) *</label><input id="l-horas" type="number" min="1" placeholder="2"></div>
+    </div>
+    <div class="form-group">
+      <label>Contenido (Material de Estudio)</label>
+      <textarea id="l-contenido" style="min-height:120px;" placeholder="Escribe el contenido de la lección aquí..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>Recursos Multimedia</label>
+      <div style="display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;">
+        <select id="l-media-tipo" style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;">
+          <option value="video">🎥 Video</option>
+          <option value="pdf">📄 PDF</option>
+          <option value="imagen">🖼️ Imagen</option>
+          <option value="enlace">🔗 Enlace</option>
+        </select>
+        <input id="l-media-url" placeholder="URL del recurso"
+          style="flex:1;background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:8px 12px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;">
+        <button class="btn btn-secondary btn-sm" onclick="addMedia()">+ Agregar</button>
+      </div>
+      <div id="l-media-list" class="media-list"></div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('modal-leccion')">Cancelar</button>
+      <button class="btn btn-primary"   onclick="saveLeccion()">Guardar Lección</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Administrativo -->
+<div id="modal-admin" class="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-admin-title">Nuevo Administrativo</h2>
+      <button class="modal-close" onclick="closeModal('modal-admin')">✕</button>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Identificación *</label><input id="a-id" placeholder="12345678"></div>
+      <div class="form-group"><label>Teléfono</label><input id="a-tel" placeholder="3001234567"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Nombres *</label><input id="a-nombres" placeholder="María"></div>
+      <div class="form-group"><label>Apellidos *</label><input id="a-apellidos" placeholder="Rodríguez"></div>
+    </div>
+    <div class="form-group"><label>Email *</label><input id="a-email" type="email" placeholder="admin@abc.edu.co"></div>
+    <div class="form-group"><label>Contraseña *</label><input id="a-pass" type="password" placeholder="contraseña segura"></div>
+    <div class="form-group">
+      <label>Cargo *</label>
+      <select id="a-cargo">
+        <option value="">Seleccionar...</option>
+        <option>Rector</option><option>Coordinador Académico</option>
+        <option>Coordinador de Convivencia</option><option>Secretario Académico</option>
+        <option>Asesor Pedagógico</option><option>Auxiliar Administrativo</option>
+        <option>Director de Área</option><option>Otro</option>
+      </select>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('modal-admin')">Cancelar</button>
+      <button class="btn btn-primary"   onclick="saveAdmin()">Guardar Administrativo</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Confirmar Eliminación -->
+<div id="modal-confirm" class="modal-overlay">
+  <div class="modal" style="max-width:400px;">
+    <div class="modal-header">
+      <h2>⚠️ Confirmar Eliminación</h2>
+      <button class="modal-close" onclick="closeModal('modal-confirm')">✕</button>
+    </div>
+    <p id="confirm-message" style="color:var(--text2);font-size:14px;line-height:1.6;">
+      ¿Estás seguro de que deseas eliminar este registro?
+    </p>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('modal-confirm')">Cancelar</button>
+      <button class="btn btn-danger"    id="confirm-action-btn">Eliminar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Ver Lección -->
+<div id="modal-view-leccion" class="modal-overlay">
+  <div class="modal modal-lg">
+    <div class="modal-header">
+      <h2>Detalle de Lección</h2>
+      <button class="modal-close" onclick="closeModal('modal-view-leccion')">✕</button>
+    </div>
+    <div id="view-leccion-content"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
 
 
 

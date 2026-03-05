@@ -129,3 +129,36 @@ function saveDocente() {
   toast(editDocenteId ? 'Docente actualizado ✅' : 'Docente creado ✅', 'success');
   editDocenteId = null;
 }
+
+/* ---- VER PERFIL ---- */
+
+function viewDocente(id) {
+  const d      = LS.get('docentes').find(x => x.id === id);
+  if (!d) return;
+  const cursos = LS.get('cursos').filter(c => c.docenteId === id);
+  const initials = (d.nombres[0] || '') + (d.apellidos[0] || '');
+
+  document.getElementById('view-docente-content').innerHTML = `
+    <div class="detail-header">
+      <div class="detail-avatar-lg">${initials.toUpperCase()}</div>
+      <div class="detail-info">
+        <h2>${d.nombres} ${d.apellidos}</h2>
+        <p>${d.area} · ${d.codigo}</p>
+        <p style="margin-top:4px">${d.email}</p>
+      </div>
+    </div>
+    <div class="info-grid" style="margin-bottom:20px">
+      <div class="info-item"><label>Identificación</label><span>${d.identificacion}</span></div>
+      <div class="info-item"><label>Área Académica</label><span>${d.area}</span></div>
+    </div>
+    <h3 style="font-size:14px;margin-bottom:12px;color:var(--text2)">📚 Cursos a Cargo (${cursos.length})</h3>
+    ${cursos.length
+      ? cursos.map(c => `
+          <div style="background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:8px;font-size:13px">
+            <strong>${c.nombre}</strong><br>
+            <span style="color:var(--text3)">${c.codigo} · ${c.descripcion.slice(0, 70)}...</span>
+          </div>`).join('')
+      : '<p style="color:var(--text3);font-size:13px">Sin cursos asignados</p>'
+    }`;
+  openModal('modal-view-docente');
+}
