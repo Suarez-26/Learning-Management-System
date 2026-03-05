@@ -119,7 +119,158 @@
   </aside>
 
 
-  
+
+    <!-- ---- MAIN ---- -->
+  <main class="main-content">
+    <div class="topbar">
+      <div class="topbar-title" id="topbar-title">Dashboard</div>
+      <div class="topbar-actions" id="topbar-actions"></div>
+    </div>
+
+    <div class="content-area">
+
+      <!-- ============ DASHBOARD ============ -->
+      <div id="section-dashboard" class="section active">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">📚</div>
+            <div class="stat-value" id="stat-cursos">0</div>
+            <div class="stat-label">Cursos Activos</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">👨‍🏫</div>
+            <div class="stat-value" id="stat-docentes">0</div>
+            <div class="stat-label">Docentes Registrados</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">📦</div>
+            <div class="stat-value" id="stat-modulos">0</div>
+            <div class="stat-label">Módulos Creados</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">🛡️</div>
+            <div class="stat-value" id="stat-admins">0</div>
+            <div class="stat-label">Administrativos</div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="dash-card">
+            <h3>⚡ Acciones Rápidas</h3>
+            <div class="quick-actions">
+              <button class="quick-btn" onclick="showSection('cursos');openModalCurso()">➕ Nuevo Curso</button>
+              <button class="quick-btn" onclick="showSection('docentes');openModalDocente()">➕ Nuevo Docente</button>
+              <button class="quick-btn" onclick="showSection('admins');openModalAdmin()">➕ Nuevo Admin</button>
+              <button class="quick-btn" onclick="showPublic()">🌐 Ver Plataforma</button>
+            </div>
+          </div>
+          <div class="dash-card">
+            <h3>📋 Cursos Recientes</h3>
+            <ul class="recent-list" id="recent-courses"></ul>
+          </div>
+          <div class="dash-card">
+            <h3>👨‍🏫 Docentes Recientes</h3>
+            <ul class="recent-list" id="recent-teachers"></ul>
+          </div>
+          <div class="dash-card">
+            <h3>📊 Por Área Académica</h3>
+            <ul class="recent-list" id="areas-list"></ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ DOCENTES ============ -->
+      <div id="section-docentes" class="section">
+        <div class="tab-list">
+          <button class="tab-btn active" onclick="switchTab('docentes','grid',this)">Vista Tarjetas</button>
+          <button class="tab-btn"        onclick="switchTab('docentes','table',this)">Vista Tabla</button>
+        </div>
+
+        <div id="tab-docentes-grid" class="tab-panel active">
+          <div class="table-header">
+            <div class="search-box">🔍
+              <input id="search-docentes" placeholder="Buscar docente..." oninput="renderDocentes()">
+            </div>
+          </div>
+          <div id="docentes-grid" class="teachers-grid"></div>
+        </div>
+
+        <div id="tab-docentes-table" class="tab-panel">
+          <div class="table-header">
+            <div class="search-box">🔍
+              <input id="search-docentes2" placeholder="Buscar docente..." oninput="renderDocentes()">
+            </div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Código</th><th>Identificación</th><th>Nombre</th>
+                  <th>Email</th><th>Área</th><th>Cursos</th><th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="docentes-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ CURSOS ============ -->
+      <div id="section-cursos" class="section">
+        <div class="tab-list">
+          <button class="tab-btn active" onclick="switchTab('cursos','list',this)">Cursos</button>
+          <button class="tab-btn"        onclick="switchTab('cursos','modulos',this)">Módulos y Lecciones</button>
+        </div>
+
+        <div id="tab-cursos-list" class="tab-panel active">
+          <div class="table-header">
+            <div class="search-box">🔍
+              <input id="search-cursos" placeholder="Buscar curso..." oninput="renderCursos()">
+            </div>
+          </div>
+          <div id="cursos-grid" class="courses-grid"></div>
+        </div>
+
+        <div id="tab-cursos-modulos" class="tab-panel">
+          <div class="table-header">
+            <div>
+              <label style="font-size:13px;color:var(--text2);margin-right:10px;">Seleccionar curso:</label>
+              <select id="select-curso-modulos" onchange="renderModulos()"
+                style="background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius);padding:8px 12px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;">
+              </select>
+            </div>
+            <button class="btn btn-primary btn-sm" onclick="openModalModulo()">➕ Nuevo Módulo</button>
+          </div>
+          <div id="modulos-list" class="module-list"></div>
+        </div>
+      </div>
+
+      <!-- ============ ADMINS ============ -->
+      <div id="section-admins" class="section">
+        <div class="table-header">
+          <div class="search-box">🔍
+            <input id="search-admins" placeholder="Buscar administrativo..." oninput="renderAdmins()">
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th><th>Nombre</th><th>Email</th>
+                <th>Teléfono</th><th>Cargo</th><th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="admins-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /content-area -->
+  </main>
+</div><!-- /page-app -->
+
+
+
 </body>
 <script src="./script/app.js"></script>
 </html>
