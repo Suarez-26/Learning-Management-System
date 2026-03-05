@@ -101,7 +101,10 @@
   font-size: 22px; font-weight: 700; color: white;
   margin-bottom: 14px;
   overflow: hidden;
-}
+} 
+
+/* HASTA AQUI*/
+
 
 
 .teacher-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
@@ -158,4 +161,69 @@
   padding: 14px 16px;
   cursor: pointer;
   transition: background 0.2s;
+}
+/* HASTA AQUI*/
+.module-header:hover { background: var(--surface3); }
+.module-toggle      { font-size: 12px; color: var(--text3); transition: transform 0.2s; }
+.module-toggle.open { transform: rotate(90deg); }
+.module-title       { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600; flex: 1; }
+.module-actions     { display: flex; gap: 6px; }
+
+.module-lessons      { padding: 0 16px 12px; border-top: 1px solid var(--border); display: none; }
+.module-lessons.open { display: block; }
+
+.lesson-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.lesson-item:last-child { border-bottom: none; }
+.lesson-icon  { font-size: 16px; }
+.lesson-info  { flex: 1; }
+.lesson-title { font-weight: 500; }
+.lesson-hours { font-size: 11px; color: var(--text3); }
+
+/* =====================================================
+   VISTA PÚBLICA
+   ===================================================== */
+.public-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 28px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.public-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 700;
+}
+.public-logo-icon {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.public-hero {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 48px;
+}
+.public-hero h1 {
+  font-size: 42px; margin-bottom: 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.public-hero p { color: var(--text2); font-size: 15px; }
+
+/* =====================================================
+   RESPONSIVE SECTIONS
+   ===================================================== */
+@media (max-width: 900px) {
+  .stats-grid     { grid-template-columns: 1fr 1fr; }
+  .dashboard-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .stats-grid { grid-template-columns: 1fr; }
 }

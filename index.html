@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/componets.css">
-    <link rel="stylesheet" href="./css/dashboard.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS — Institución ABC</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/sections.css">
 </head>
 <body>
 <!-- ====================================================
@@ -35,9 +38,9 @@
       </div>
       <div id="public-courses-grid" class="courses-grid" style="max-width:1100px;margin:0 auto;"></div>
     </div>
+
   </div>
 </div>
-
 
 <!-- ====================================================
      PAGE: LOGIN
@@ -117,10 +120,8 @@
       </div>
     </div>
   </aside>
-
-
-
-    <!-- ---- MAIN ---- -->
+   <!-- HASTA AQUI-->
+  <!-- ---- MAIN ---- -->
   <main class="main-content">
     <div class="topbar">
       <div class="topbar-title" id="topbar-title">Dashboard</div>
@@ -358,6 +359,11 @@
     </div>
   </div>
 </div>
+<!--HASTA AUQI -->
+
+
+
+
 
 <!-- Modal Lección -->
 <div id="modal-leccion" class="modal-overlay">
@@ -461,17 +467,17 @@
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-
-
+<!-- ====================================================
+     SCRIPTS  (orden de dependencias)
+     ==================================================== -->
+<script src="scripts/data.js"></script>
+<script src="scripts/auth.js"></script>
+<script src="scripts/dashboard.js"></script>
+<script src="scripts/docentes.js"></script>
+<script src="scripts/cursos.js"></script>
+<script src="scripts/modulos.js"></script>
+<script src="scripts/admins.js"></script>
+<script src="scripts/delete.js"></script>
 
 </body>
-<script src="./script/data.js"></script>
-<script src="./script/auth.js"></script>
-<script src="./script/dashboard.js"></script>
-<script src="./script/Docentes.js"></script>
-<script src="./script/cursos.js"></script>
-<script src="./script/modulos.js"></script>
-<script src="./script/admins.js"></script>
-<script src="./script/delete.js"></script>
-
 </html>

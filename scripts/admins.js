@@ -51,6 +51,8 @@ function openModalAdmin(id) {
   }
   openModal('modal-admin');
 }
+ 
+/*  HASA AQUI* */
 
 function saveAdmin() {
   const identificacion = document.getElementById('a-id').value.trim();

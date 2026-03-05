@@ -53,6 +53,8 @@ function _renderDocentesGrid(docs, cursos) {
   }).join('');
 }
 
+
+
 function _renderDocentesTable(docs, cursos) {
   const tbody = document.getElementById('docentes-table-body');
   tbody.innerHTML = docs.map(d => {

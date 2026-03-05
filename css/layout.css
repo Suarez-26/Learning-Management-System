@@ -61,6 +61,10 @@
   margin-bottom: 2px;
 }
 
+
+
+
+
 .nav-item:hover  { background: var(--surface2); color: var(--text); }
 .nav-item.active { background: rgba(108,99,255,0.15); color: var(--accent); }
 .nav-item .nav-icon { width: 20px; text-align: center; font-size: 16px; }
@@ -114,3 +118,17 @@
 /* Sections */
 .section        { display: none; }
 .section.active { display: block; animation: fadeUp 0.4s ease; }
+/*HASTA AQUI*
+
+
+
+
+
+/
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 640px) {
+  .sidebar      { transform: translateX(-100%); }
+  .main-content { margin-left: 0; }
+}

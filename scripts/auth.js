@@ -52,6 +52,8 @@ function showApp() {
   populateCursoSelect();
 }
 
+/* HASTA AQUI */
+
 /* ---- SECTION NAVIGATION ---- */
 
 function showSection(name, el) {
