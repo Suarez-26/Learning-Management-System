@@ -14,7 +14,7 @@ La Institución educativa ABC, en aras de mejorar la calidad de educación que i
 
 - 🏠**Exploracion de cursos** (muestra todos los cursos registrados )
 - 🔐**Autenticación de usuarios**( validacion del admin)
-- **Dashboard principal **(Pagina principal )
+- **Dashboard principal**(Pagina principal )
 - **Panel de docentes** (Sistema CRUD de docentes)
 - **Panel de cursos, modulos y lecciones** (Sistema CRUD de cursos, modulos y lecciones
 - **Diseño responsive** (completamente adaptado a móviles hasta 400px)
@@ -106,8 +106,8 @@ Este proyecto fue desarrollado con fines académicos. Puedes usarlo, modificarlo
 
 **Santiago Suarez**
 
-📧 Email: [santiago.suarezh26@gmail.com](mailto:santiago.suarezh26@gmail.com)
-🐙 GitHub: [Suarez-26](https://github.com/Suarez-26)
-💼 LinkedIn: [Santiago Suarez](https://www.linkedin.com/in/santiago-suarez-hern%C3%A1ndez-9303a6382/)
-🌐 Portafolio: https://tu-portfolio.com
+- 📧 Email: [santiago.suarezh26@gmail.com](mailto:santiago.suarezh26@gmail.com)
+- 🐙 GitHub: [Suarez-26](https://github.com/Suarez-26)
+- 💼 LinkedIn: [Santiago Suarez](https://www.linkedin.com/in/santiago-suarez-hern%C3%A1ndez-9303a6382/)
+- 🌐 Portafolio: https://tu-portfolio.com
 
