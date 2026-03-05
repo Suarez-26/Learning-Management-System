@@ -269,6 +269,97 @@
   </main>
 </div><!-- /page-app -->
 
+<!-- ====================================================
+     MODALES
+     ==================================================== -->
+
+<!-- Modal Docente -->
+<div id="modal-docente" class="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-docente-title">Nuevo Docente</h2>
+      <button class="modal-close" onclick="closeModal('modal-docente')">✕</button>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Código *</label><input id="d-codigo" placeholder="DOC-001"></div>
+      <div class="form-group"><label>Identificación *</label><input id="d-id" placeholder="12345678"></div>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Nombres *</label><input id="d-nombres" placeholder="Juan Carlos"></div>
+      <div class="form-group"><label>Apellidos *</label><input id="d-apellidos" placeholder="García López"></div>
+    </div>
+    <div class="form-group"><label>Email *</label><input id="d-email" type="email" placeholder="docente@abc.edu.co"></div>
+    <div class="form-group"><label>URL Foto (opcional)</label><input id="d-foto" placeholder="https://..."></div>
+    <div class="form-group">
+      <label>Área Académica *</label>
+      <select id="d-area">
+        <option value="">Seleccionar...</option>
+        <option>Biología</option><option>Informática</option><option>Matemáticas</option>
+        <option>Física</option><option>Química</option><option>Lengua Castellana</option>
+        <option>Historia</option><option>Geografía</option><option>Inglés</option>
+        <option>Arte</option><option>Educación Física</option><option>Ética</option>
+        <option>Ciencias Sociales</option><option>Filosofía</option><option>Otra</option>
+      </select>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('modal-docente')">Cancelar</button>
+      <button class="btn btn-primary"   onclick="saveDocente()">Guardar Docente</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Ver Docente -->
+<div id="modal-view-docente" class="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Perfil del Docente</h2>
+      <button class="modal-close" onclick="closeModal('modal-view-docente')">✕</button>
+    </div>
+    <div id="view-docente-content"></div>
+  </div>
+</div>
+
+<!-- Modal Curso -->
+<div id="modal-curso" class="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-curso-title">Nuevo Curso</h2>
+      <button class="modal-close" onclick="closeModal('modal-curso')">✕</button>
+    </div>
+    <div class="form-row">
+      <div class="form-group"><label>Código *</label><input id="c-codigo" placeholder="CUR-001"></div>
+      <div class="form-group">
+        <label>Docente *</label>
+        <select id="c-docente"><option value="">Seleccionar...</option></select>
+      </div>
+    </div>
+    <div class="form-group"><label>Nombre del Curso *</label><input id="c-nombre" placeholder="Introducción a la Programación"></div>
+    <div class="form-group"><label>Descripción *</label><textarea id="c-descripcion" placeholder="Descripción del curso..."></textarea></div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('modal-curso')">Cancelar</button>
+      <button class="btn btn-primary"   onclick="saveCurso()">Guardar Curso</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Módulo -->
+<div id="modal-modulo" class="modal-overlay">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-modulo-title">Nuevo Módulo</h2>
+      <button class="modal-close" onclick="closeModal('modal-modulo')">✕</button>
+    </div>
+    <div class="form-group"><label>Código *</label><input id="m-codigo" placeholder="MOD-001"></div>
+    <div class="form-group"><label>Nombre *</label><input id="m-nombre" placeholder="Módulo 1: Introducción"></div>
+    <div class="form-group"><label>Descripción</label><textarea id="m-descripcion" placeholder="Descripción del módulo..."></textarea></div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" onclick="closeModal('modal-modulo')">Cancelar</button>
+      <button class="btn btn-primary"   onclick="saveModulo()">Guardar Módulo</button>
+    </div>
+  </div>
+</div>
+
+
 
 
 </body>
