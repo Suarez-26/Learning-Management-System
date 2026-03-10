@@ -98,11 +98,7 @@
       <div class="nav-item" onclick="showSection('cursos',this)">
         <span class="nav-icon">📚</span> Cursos
       </div>
-
-      <div class="nav-item" onclick="showSection('Gestion de estudiantes',this)">
-        <span class="nav-icon">📚</span> Gestion de Estudiantes
-      </div>
-
+      
       <div class="sidebar-section">Administración</div>
       <div class="nav-item" onclick="showSection('admins',this)">
         <span class="nav-icon">🛡️</span> Administrativos
@@ -249,41 +245,6 @@
           <div id="modulos-list" class="module-list"></div>
         </div>
       </div>
- <!-- ======== GESTION DE ESTUDIANTES =======-->
- <div id="Gestion de estudiantes" class="section">
-  <div class="tab-list">
-    <button class="tab-btn active" onclick="switchTab('estudiante','grid',this)">Vista Tarjetas</button>
-    <button class="tab-btn"        onclick="switchTab('estudiante','table',this)">Vista Tabla</button>
-  </div>
-
-  <div id="tab-estudiante-grid" class="tab-panel active">
-    <div class="table-header">
-      <div class="search-box">🔍
-        <input id="search-docentes" placeholder="Buscar estudiante..." oninput="renderGestionEstudiantes()">
-      </div>
-    </div>
-    <div id="estudiante-grid" class="teachers-grid"></div>
-  </div>
-
-  <div id="tab-estudiante-table" class="tab-panel">
-    <div class="table-header">
-      <div class="search-box">🔍
-        <input id="search-docentes2" placeholder="Buscar curso de estudiante..." oninput="renderGestionEstudiantes()">
-      </div>
-    </div>
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Código</th><th>Identificación</th><th>Nombre</th>
-            <th>Email</th><th>Área</th><th>Cursos</th><th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody id="estudiantes-table-body"></tbody>
-      </table>
-    </div>
-  </div>
-</div>
 
       <!-- ============ ADMINS ============ -->
       <div id="section-admins" class="section">
@@ -364,30 +325,6 @@
   <div class="modal">
     <div class="modal-header">
       <h2 id="modal-curso-title">Nuevo Curso</h2>
-      <button class="modal-close" onclick="closeModal('modal-curso')">✕</button>
-    </div>
-    <div class="form-row">
-      <div class="form-group"><label>Código *</label><input id="c-codigo" placeholder="CUR-001"></div>
-      <div class="form-group">
-        <label>Docente *</label>
-        <select id="c-docente"><option value="">Seleccionar...</option></select>
-      </div>
-    </div>
-    <div class="form-group"><label>Nombre del Curso *</label><input id="c-nombre" placeholder="Introducción a la Programación"></div>
-    <div class="form-group"><label>Descripción *</label><textarea id="c-descripcion" placeholder="Descripción del curso..."></textarea></div>
-    <div class="modal-footer">
-      <button class="btn btn-secondary" onclick="closeModal('modal-curso')">Cancelar</button>
-      <button class="btn btn-primary"   onclick="saveCurso()">Guardar Curso</button>
-    </div>
-  </div>
-</div>
-
-<!--Modal de gestion de estudiantes-->
-
-<div id="modal-curso" class="modal-overlay">
-  <div class="modal">
-    <div class="modal-header">
-      <h2 id="modal-GESTIONESTUDIANTES-title">Nuevo </h2>
       <button class="modal-close" onclick="closeModal('modal-curso')">✕</button>
     </div>
     <div class="form-row">
@@ -541,7 +478,6 @@
 <script src="scripts/modulos.js"></script>
 <script src="scripts/admins.js"></script>
 <script src="scripts/delete.js"></script>
+.js"></script>
+<script src="scripts/delete.js"></script>
 <script src="scripts/Examen.js"></script>
-
-</body>
-</html>

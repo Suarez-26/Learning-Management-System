@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LMS ABC — Estudiantes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="examen.css">
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="sidebar-logo-icon">🎓</div>
+      <div>
+        <div class="sidebar-logo-text">Inst. ABC</div>
+        <div class="sidebar-logo-sub">Panel de Gestión</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="sidebar-section">Principal</div>
+      <div class="nav-item" onclick="window.location='index.html'">
+        <span class="nav-icon">📊</span> Dashboard
+      </div>
+      <div class="sidebar-section">Académico</div>
+      <div class="nav-item" onclick="window.location='index.html'">
+        <span class="nav-icon">👨‍🏫</span> Docentes
+      </div>
+      <div class="nav-item" onclick="window.location='index.html'">
+        <span class="nav-icon">📚</span> Cursos
+      </div>
+      <div class="sidebar-section">Estudiantes</div>
+      <div class="nav-item active">
+        <span class="nav-icon">🎒</span> Estudiantes
+      </div>
+      <div class="sidebar-section">Administración</div>
+      <div class="nav-item" onclick="window.location='index.html'">
+        <span class="nav-icon">🛡️</span> Administrativos
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-card">
+        <div class="user-avatar">A</div>
+        <div>
+          <div class="user-name">Admin</div>
+          <div class="user-role">Administrativo</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div class="topbar-title">Gestión de Estudiantes</div>
+      <div class="topbar-actions">
+        <button class="btn btn-primary btn-sm" onclick="abrirModal()">➕ Nuevo Estudiante</button>
+      </div>
+    </div>
+
+    <div class="content-area">
+
+      <!-- TABS -->
+      <div class="tab-list">
+        <button class="tab-btn active" id="tab-btn-tarjetas" onclick="cambiarTab('tarjetas')">Vista Tarjetas</button>
+        <button class="tab-btn"        id="tab-btn-tabla"    onclick="cambiarTab('tabla')">Vista Tabla</button>
+      </div>
+
+      <!-- BUSCADOR -->
+      <div class="table-header">
+        <div class="search-box">
+          🔍 <input id="buscador" placeholder="Buscar estudiante..." oninput="renderEstudiantes()">
+        </div>
+      </div>
+
+      <!-- VISTA TARJETAS -->
+      <div id="vista-tarjetas">
+        <div id="grid-estudiantes" class="students-grid"></div>
+      </div>
+
+      <!-- VISTA TABLA -->
+      <div id="vista-tabla" style="display:none">
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Identificación</th>
+                <th>Nombre</th>
+                <th>Género</th>
+                <th>Teléfono</th>
+                <th>Cursos</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-estudiantes"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- MODAL CREAR / EDITAR -->
+  <div id="modal-estudiante" class="modal-overlay">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h2 id="modal-titulo">Nuevo Estudiante</h2>
+        <button class="modal-close" onclick="cerrarModal()">✕</button>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Identificación *</label>
+          <input id="e-id" placeholder="12345678">
+        </div>
+        <div class="form-group">
+          <label>Género *</label>
+          <select id="e-genero">
+            <option value="">Seleccionar...</option>
+            <option>Masculino</option>
+            <option>Femenino</option>
+            <option>Otro</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombres *</label>
+          <input id="e-nombres" placeholder="Juan">
+        </div>
+        <div class="form-group">
+          <label>Apellidos *</label>
+          <input id="e-apellidos" placeholder="García">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Fecha de Nacimiento *</label>
+          <input id="e-fecha" type="date">
+        </div>
+        <div class="form-group">
+          <label>Teléfono</label>
+          <input id="e-telefono" placeholder="3001234567">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Dirección</label>
+        <input id="e-direccion" placeholder="Calle 123 # 45-67">
+      </div>
+
+      <div class="form-group">
+        <label>Cursos Asociados</label>
+        <div id="cursos-checkboxes" class="checkboxes-wrap"></div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="cerrarModal()">Cancelar</button>
+        <button class="btn btn-primary" onclick="guardarEstudiante()">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL VER DETALLE -->
+  <div id="modal-ver" class="modal-overlay">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h2>Perfil del Estudiante</h2>
+        <button class="modal-close" onclick="cerrarVer()">✕</button>
+      </div>
+      <div id="ver-contenido"></div>
+    </div>
+  </div>
+
+  <!-- MODAL CONFIRMAR BORRAR -->
+  <div id="modal-borrar" class="modal-overlay">
+    <div class="modal" style="max-width:400px">
+      <div class="modal-header">
+        <h2>⚠️ Confirmar</h2>
+        <button class="modal-close" onclick="cerrarBorrar()">✕</button>
+      </div>
+      <p style="color:var(--text2);font-size:14px;line-height:1.6">
+        ¿Estás seguro de que deseas eliminar este estudiante?
+      </p>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="cerrarBorrar()">Cancelar</button>
+        <button class="btn btn-danger" id="btn-confirmar-borrar">Eliminar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script src="examen.js"></script>
+
+</body>
+</html>
